@@ -31,7 +31,9 @@ def get_courses_list(courses_url):
         return courses_list
     else:
         print("can't load list of courses")
-        exit()```
+        exit()
+```
+		
 Теперь примерим на себя роль провидца и подумаем какой функционал потребуется 
 через месяц:
 
@@ -64,7 +66,7 @@ def get_course_info(html):
 
     # ...  parsing logic
 
-    ```python
+```python
 	rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
@@ -74,7 +76,8 @@ def get_course_info(html):
 
     # .... parsing logic
 
-    return course_data```
+    return course_data
+```
 	
 ## Что может произойти с кодом дальше? ##
 
@@ -92,14 +95,15 @@ def get_course_info(html):
     # ... more parsing logic is here
 
     # number prefix is usefull for simple sorting data before output to xlsx
-    ```python
+```python
 	return {
         '1_title': title,
         '2_date': start_date,
         '3_language': language,
         '4_weeks': duration,
         "5_rating": rating
-    }```
+    }
+```
 Сразу возникают вопросы. А если нужна еще одна выгрузка в формате csv, с 
 другим порядком столбцов, как это сделать? Как заменить столбец 2_date на 
 days_before_start ?
@@ -113,7 +117,6 @@ days_before_start ?
 и изолированы.
 
 ## Вместо заключения ##
-
 
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
